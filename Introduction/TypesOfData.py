@@ -1,5 +1,5 @@
+#Tuples
 """
-Tuples
 The tuples are data that never change of values, they are fixed data.
 The tuple are identified by have one variable y assigned data inside of '()'.
 In one tuple you can used all type of data, only need separate with ','
@@ -17,6 +17,21 @@ example: name(name1,years,number, etc)
 console: name1
 """
 print(User[0])
+
+"""
+Sub-list
+[start:end] new list whit start index and end index
+[start:]    new list with start without end index
+[:end]      new list without start with end index
+[start:end:skip] new list with start index, end index and index jump
+[::skip]    new list withoit start index and end index but with index jump
+"""
+sub_tuple = User[1:3]
+sub_tuple = User[1:]
+sub_tuple = User[:5]
+sub_tuple = User[1:6:2]
+sub_tuple = User[::2]
+
 """
 If used a for they can iterate all the tuple and to show data by data
 example: name(name1,years,number)
@@ -136,6 +151,14 @@ print("\n Number of Camilo in the list")
 print(User.count("Camilo"))
 
 """
+if need insert a value in an index specific, used the function insert 
+where we put the position and the new value
+"""
+print("\n New value of Carlos in position 2")
+User.insert(2,"Carlos")
+print(User)
+
+"""
 sort() is a method for order an list of numbers
 Example: name.sort()
 """
@@ -143,15 +166,34 @@ Example: name.sort()
 print("\n List numbers in order")
 Numbers = [1, 5, 9, 5, 18, 9, 3, 6]
 Numbers.sort()
+Numbers.sort(reverse=True) #Invers - desc
 min = min(Numbers)
 max = max(Numbers)
 long = len(Numbers)
 print(Numbers)
 res = 1 in Numbers
 print(res)
+res = 1 not in Numbers
+print(res)
 indice = Numbers.index(5)
 print(indice)
 
+"""
+Sub-list
+[start:end] new list whit start index and end index
+[start:]    new list with start without end index
+[:end]      new list without start with end index
+[start:end:skip] new list with start index, end index and index jump
+[::skip]    new list withoit start index and end index but with index jump
+"""
+print(Numbers)
+sub_list = Numbers[1:3]
+sub_list = Numbers[1:]
+sub_list = Numbers[:5]
+sub_list = Numbers[1:6:2]
+sub_list = Numbers[-3:]
+print('Sublist')
+print(sub_list)
 """
 if need that the numbers are in order reverse, used reverse=true inside of '()' of the method sort()
 Example: name.sort(reverse=true)
@@ -170,4 +212,62 @@ Example: print(name[-5])
 print("\n data position 2 in moved back")
 print(User[-2])
 
-"""User[start:end:step]"""
+"""
+if need remove all element, used de function clear()
+"""
+User.clear()
+print(len(User))
+
+#Generate tuple of a list
+names = ['Calor','Pedro','Juan']
+names_tuple = tuple(names)
+print(names_tuple)
+print(type(names_tuple))
+
+#Generate list of a tuple
+lastNames = ('Perez','Gonzales','Hurtado')
+lastNames_list = list(lastNames)
+print(lastNames)
+print(type(lastNames_list))
+
+#Unpacked
+"""
+Assign values of truple in variables
+Skip value with *_ or only _
+Group list *
+"""
+numeros = (1,2,3,4,5,6,7,8,9,10)
+one, two, three, four, five, *otherValues = numeros
+
+print(one)
+print(two)
+print(three)
+print(four)
+print(five)
+print(otherValues)
+
+#Skip 6,7,8
+one, two, three, four, five, *otherValues, nine, ten = numeros
+
+print(nine)
+print(ten)
+print(otherValues)
+
+#Skip 2,6,7,8
+one, _, three, four, five, *_, nine, ten = numeros
+
+print(one)
+print(three)
+print(four)
+print(nine)
+print(ten)
+
+#Packed
+numbre_list = [1,2,3,4,5,6,7]
+number_tuple = (10,20,30,40,50)
+number_list2 = [100,200,300,400,500]
+number_tuple2 = (1000,2000,3000,4000,5000)
+
+result = zip(numbre_list,number_tuple,number_list2,number_tuple2)
+result = tuple(result)
+print(result)
